@@ -1,15 +1,20 @@
-function secondHeighest(arr){
-    let firstMax = -Infinity;
-    let secondMax = -Infinity;
+function secondHighest(arr) {
+    if (arr.length < 2) {
+        return -Infinity; // Return -Infinity for empty or single-element arrays
+    }
 
-    arr.forEach(element => {
-        if(element > firstMax){
-            secondMax = firstMax;
-            firstMax = element;
-        }else if(element > secondMax && element < firstMax){
-            secondMax = element;
+    let highest = -Infinity;
+    let secondHighest = -Infinity;
+    
+    for (const num of arr) {
+        if (num > highest) {
+            secondHighest = highest; // Update second highest
+            highest = num; // Update highest
+        } else if (num > secondHighest && num < highest) {
+            secondHighest = num; // Update second highest
         }
-    });
+    }
 
-    console.log(secondMax);
+    // If secondHighest is still -Infinity, it means all elements are the same
+    return secondHighest === -Infinity ? -Infinity : secondHighest;
 }
