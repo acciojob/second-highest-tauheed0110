@@ -9,7 +9,21 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
+			
+		    let highest = -Infinity;
+		    let secondHighest = -Infinity;
+		    
+		    for (const num of arr) {
+		        if (num > highest) {
+		            secondHighest = highest; // Update second highest
+		            highest = num; // Update highest
+		        } else if (num > secondHighest && num < highest) {
+		            secondHighest = num; // Update second highest
+		        }
+		    }
+
+    
+		    return secondHighest
 			
 		}
 
